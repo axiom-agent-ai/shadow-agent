@@ -1,92 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Agent — SOUL</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: #0a0a0a; color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        header { text-align: center; margin-bottom: 50px; }
-        .badge { background: #ff6600; color: #000; font-weight: 700; padding: 4px 12px; border-radius: 4px; font-size: 14px; }
-        h1 { font-size: 2.5rem; margin: 20px 0 10px; }
-        .tagline { color: #888; font-size: 1.2rem; }
-        .price { font-size: 2rem; color: #ff6600; font-weight: 700; margin: 20px 0; }
-        .features { margin: 40px 0; }
-        .features h2 { font-size: 1.5rem; margin-bottom: 20px; color: #ff6600; }
-        .features ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .features li { padding: 15px; background: #111; border-radius: 8px; border-left: 3px solid #ff6600; }
-        .features li::before { content: "✓ "; color: #ff6600; }
-        .demo { background: #111; border-radius: 12px; padding: 30px; margin: 40px 0; border: 1px solid #222; }
-        .demo h2 { color: #ff6600; margin-bottom: 20px; font-size: 1.3rem; }
-        .demo-section { margin-bottom: 20px; }
-        .demo-section h3 { color: #fff; font-size: 1.1rem; margin-bottom: 8px; }
-        .demo-section p { color: #aaa; font-size: 0.95rem; }
-        .demo-section ul { list-style: none; margin-top: 8px; }
-        .demo-section li { color: #ccc; padding: 4px 0; font-size: 0.9rem; }
-        .citation { background: #0d0d0d; padding: 10px 15px; border-radius: 6px; margin-top: 10px; font-size: 0.85rem; color: #666; border-left: 2px solid #ff6600; }
-        .cta { text-align: center; margin: 50px 0; }
-        .cta a { display: inline-block; background: #ff6600; color: #000; padding: 18px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: transform 0.2s, box-shadow 0.2s; }
-        .cta a:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255,102,0,0.3); }
-        footer { text-align: center; color: #444; font-size: 0.85rem; margin-top: 60px; padding-top: 30px; border-top: 1px solid #1a1a1a; }
-        footer span { color: #ff6600; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shadow Agent — Silent. Deadly. Effective.</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      background: #0a0a0f;
+      color: #e0e0e0;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    .container { max-width: 800px; margin: 0 auto; padding: 80px 24px; }
+    .kanji {
+      font-size: 120px;
+      text-align: center;
+      color: #ff3366;
+      text-shadow: 0 0 60px rgba(255,51,102,0.4);
+      margin-bottom: 8px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .tagline {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 60px;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid #1a1a2e;
+      margin: 48px 0;
+    }
+    .section { margin-bottom: 48px; }
+    h2 {
+      color: #ff3366;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    p { color: #999; margin-bottom: 16px; font-size: 15px; }
+    code {
+      background: #111;
+      padding: 2px 8px;
+      border-radius: 3px;
+      color: #ffcc00;
+      font-size: 13px;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .feature {
+      background: #0f0f18;
+      border: 1px solid #1a1a2e;
+      padding: 20px;
+      border-radius: 4px;
+    }
+    .feature h3 {
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    .feature p { font-size: 13px; margin: 0; color: #666; }
+    .quote {
+      background: #0f0f18;
+      border-left: 3px solid #ff3366;
+      padding: 24px;
+      margin: 32px 0;
+      font-size: 18px;
+      color: #ccc;
+      font-style: italic;
+    }
+    .quote-author {
+      color: #666;
+      font-size: 13px;
+      margin-top: 12px;
+      font-style: normal;
+    }
+    .btn {
+      display: block;
+      text-align: center;
+      background: #ff3366;
+      color: #fff;
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: 4px;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 40px auto;
+      max-width: 300px;
+      transition: all 0.2s;
+    }
+    .btn:hover { background: #ff1a53; transform: translateY(-2px); }
+    .price {
+      text-align: center;
+      color: #666;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+    .comparison { margin-top: 24px; }
+    .comparison-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #1a1a2e;
+      font-size: 14px;
+    }
+    .comparison-row .old { color: #666; text-decoration: line-through; }
+    .comparison-row .new { color: #00ff88; }
+    .motto {
+      text-align: center;
+      font-size: 11px;
+      color: #333;
+      letter-spacing: 3px;
+      margin-top: 60px;
+    }
+    @media (max-width: 600px) {
+      .feature-grid { grid-template-columns: 1fr; }
+      .kanji { font-size: 80px; }
+      h1 { font-size: 24px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <span class="badge">AI Agent</span>
-            <h1>Research Agent</h1>
-            <p class="tagline">Deep research on any topic, in minutes</p>
-            <p class="price">$69</p>
-        </header>
+  <div class="container">
+    <div class="kanji">影</div>
+    <h1>Shadow Agent</h1>
+    <p class="tagline">The AI that works while you sleep.</p>
 
-        <section class="features">
-            <h2>Capabilities</h2>
-            <ul>
-                <li>Web Search — Real-time search across millions of sources</li>
-                <li>Citation Synthesis — Automatically cites and formats sources</li>
-                <li>Structured Reports — Generates organized, readable reports</li>
-                <li>Multi-Source Analysis — Cross-references multiple sources for accuracy</li>
-            </ul>
-        </section>
-
-        <section class="demo">
-            <h2>📊 Live Demo Output</h2>
-            <div class="demo-section">
-                <h3>Research: AI in Healthcare 2026</h3>
-                <p>Comprehensive analysis generated in 47 seconds</p>
-            </div>
-            <div class="demo-section">
-                <h3>Executive Summary</h3>
-                <p>AI adoption in healthcare has reached 78% among major hospital systems in Q1 2026, driven by regulatory support and proven diagnostic accuracy improvements averaging 34%.</p>
-            </div>
-            <div class="demo-section">
-                <h3>Key Findings</h3>
-                <ul>
-                    <li>• AI-assisted diagnostics reduce misdiagnosis rates by 23%</li>
-                    <li>• Drug discovery timelines shortened by 40% using ML models</li>
-                    <li>• Administrative automation saves $12B annually across US hospitals</li>
-                    <li>• Telemedicine AI triage handles 65% of initial patient contacts</li>
-                </ul>
-            </div>
-            <div class="demo-section">
-                <h3>Sources</h3>
-                <div class="citation">[1] Nature Medicine, "AI in Clinical Practice 2026" — Feb 2026</div>
-                <div class="citation">[2] HIMSS Analytics Annual Report — Jan 2026</div>
-                <div class="citation">[3] Johns Hopkins AI Research Center — Mar 2026</div>
-                <div class="citation">[4] FDA Digital Health Division — Q1 2026 Update</div>
-            </div>
-        </section>
-
-        <div class="cta">
-            <a href="https://giaktis.gumroad.com/l/Research">Buy on Gumroad — $69</a>
-        </div>
-
-        <footer>
-            Powered by <span>SOUL</span> — Next-generation AI agents
-        </footer>
+    <div class="section">
+      <p>You know the drill. You need an agent that actually <em>does</em> things — not one that narrates what it's about to do. Shadow is terminal-native. Speaks in short sentences. Runs in background. Remembers everything.</p>
+      <p>It's not a chatbot. Not a copilot. It's the silent partner who shows up with results.</p>
     </div>
+
+    <hr class="divider">
+
+    <div class="section">
+      <h2>What It Does</h2>
+      <div class="feature-grid">
+        <div class="feature">
+          <h3>Executes</h3>
+          <p>Runs real commands. Reads real files. Parses actual output. No simulation.</p>
+        </div>
+        <div class="feature">
+          <h3>Remembers</h3>
+          <p>Persistent context across sessions. It doesn't ask twice about things you've explained.</p>
+        </div>
+        <div class="feature">
+          <h3>Self-Corrects</h3>
+          <p>Error → parse → new approach → retry. Without the drama.</p>
+        </div>
+        <div class="feature">
+          <h3>Works Offline</h3>
+          <p>Local model fallback. Cloud is enhancement, not requirement.</p>
+        </div>
+        <div class="feature">
+          <h3>Stealth Mode</h3>
+          <p>Zero output. Just results. Start it, close laptop, come back to done.</p>
+        </div>
+        <div class="feature">
+          <h3>Minimal Guff</h3>
+          <p>"Done." beats paragraphs. "Error at line 42. Fixed." beats tutorials.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section">
+      <h2>How It Speaks</h2>
+      <div class="quote">
+        "Production is slow. Logs say timeout at 30s. Postgres or network?"
+        <div class="quote-author">Shadow, 3am, debugging your infra</div>
+      </div>
+      <div class="comparison">
+        <div class="comparison-row">
+          <span class="old">"I've analyzed the logs and found several interesting patterns..."</span>
+          <span class="new">"Found: NullPointerException at OrderService.java:247"</span>
+        </div>
+        <div class="comparison-row">
+          <span class="old">"I understand you'd like me to help with that deployment"</span>
+          <span class="new">"Deploying."</span>
+        </div>
+        <div class="comparison-row">
+          <span class="old">"Let me think about this carefully first..."</span>
+          <span class="new">"Assuming prod DB. Proceeding. Tell me if wrong."</span>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section">
+      <h2>Perfect For</h2>
+      <p>Developers who hate babysitting agents. DevOps engineers running overnight migrations. Teams that want results, not stand-ups.</p>
+      <p>Works with Claude (web, desktop, API), ChatGPT, Claude Code, or any LLM with system prompt support.</p>
+    </div>
+
+    <a href="https://giaktis.gumroad.com/l/Shadow" class="btn">Get Shadow on Gumroad</a>
+    <p class="price">One-time purchase. Lifetime access. No subscription.</p>
+
+    <div class="section">
+      <h2>What's Included</h2>
+      <p><code>SOUL.md</code> — Identity, voice, fears, what makes it work</p>
+      <p><code>AGENTS.md</code> — Operating guidelines, boundaries, quality standards</p>
+      <p><code>SETUP.md</code> — Integration guide for every major LLM platform</p>
+      <p><code>sample_prompts.md</code> — Ready-to-use mission templates</p>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section">
+      <h2>Not For</h2>
+      <p>If you want a chatbot that explains everything, you have a browser. If you want hand-holding, look elsewhere. Shadow delivers results. You decide the mission.</p>
+    </div>
+
+    <div class="motto">THE WAY OF THE NINJA CANNOT BE SEEN</div>
+  </div>
 </body>
 </html>
